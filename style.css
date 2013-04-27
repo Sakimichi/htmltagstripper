@@ -7,7 +7,11 @@ body
 	color:#006C80;
 }
 
-
+a
+{
+text-decoration:none;
+color:inherit;
+}
 
 header
 {
@@ -67,7 +71,6 @@ header
 	margin:0 2px;
 	color:rgba(0,0,0,0.7);
 	color:#006C80;
-	
 	overflow:hidden;
 	transition-duration: 0.3s;
     transition-property: all;
@@ -92,11 +95,22 @@ header
 	animation: flip 0.5s linear;
 	-webkit-animation: flip 0.5s linear;
 	vertical-align:text-bottom;
-
+	
 
 }
 
+#follow
+{
+	background:url('img/twitter.png') no-repeat;
+	background-size:100% 100%;
+}
 
+#follow:hover
+{
+	background:url('img/twitter_x.png') no-repeat;
+	background-size:100% 100%;
+
+}
 
 
 
