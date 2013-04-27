@@ -1,0 +1,198 @@
+body
+{
+	width:1024px;
+	margin:0 auto;
+	padding:0;
+	font-family:'Sirin Stencil', cursive;
+	color:#006C80;
+}
+
+
+
+header
+{
+		padding:10px 20px;
+}
+
+.logo
+{
+	font-family: 'Patrick Hand SC', cursive;
+	position:relative;
+	width:340px;
+	font-size:30pt;
+	color:#006C80;
+	display: inline-block;
+	text-shadow:0px 0px 0.5px #3E6B85;
+	border-bottom:0px solid #3E6B85;
+	padding:5px 0;
+	font-weight:bolder;
+
+}
+
+
+
+.logo span
+{
+	display:block;
+	position:absolute;
+	top:0px;	
+	background: url("img/shine.png") -100px 0 no-repeat;	
+	width:340px;
+	height:70px;
+	transition-duration: 2s;
+    transition-property: all;
+	
+
+}
+
+
+
+.logo:hover span
+{
+	background-position: 340px 0px;
+
+}
+
+.nav
+{
+
+	
+	
+	float:right;
+	font-size:12pt;
+	padding:5px;
+	width:70px;
+	height:70px;
+	
+	margin:0 2px;
+	color:rgba(0,0,0,0.7);
+	color:#006C80;
+	
+	overflow:hidden;
+	transition-duration: 0.3s;
+    transition-property: all;
+	background:#006C80;
+	color:#ffffff;
+	text-align:center;
+	
+}
+
+
+.nav:hover
+{
+	border-bottom:2px solid #FE8315;
+	text-shadow:0 0 0.9px #132537;
+	box-shadow:0 0 1px #132537;
+	width:85px;
+	height:85px;
+	
+	color:#006C80;
+	background:#ffffff;
+	
+	animation: flip 0.5s linear;
+	-webkit-animation: flip 0.5s linear;
+	vertical-align:text-bottom;
+
+
+}
+
+
+
+
+
+@-webkit-keyframes flip 
+{
+    0% 
+    {
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+		box-shadow:-2px 0 2px #FE8315;
+	
+    }
+	33%
+	{
+		transform:rotate(10deg);
+		-webkit-transform:rotate(10deg);
+		box-shadow:0 -2px 2px #FE8315;
+	
+	}
+	66%
+	{
+		transform:rotate(-10deg);
+		-webkit-transform:rotate(-10deg);
+		box-shadow:2px 0 2px #FE8315;
+	
+		
+	}
+	100% 
+	{
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+		box-shadow:2px 2px 2px #FE8315;
+	
+    }
+
+
+	
+}
+
+
+section
+{
+
+	padding:20px 20px;
+	margin:30px auto;
+	min-height:300px;
+	background:#E5E5E5;
+	opacity:0.5;
+	border-radius:2px;
+	box-shadow:1px 1px 2px #132537,-1px 1px 2px #132537,0px -1px 2px #132537;
+	
+}
+
+.codedata
+{
+	font-family:'Sirin Stencil', cursive;
+	position:relative;
+	font-size:12pt;
+	resize: none;
+	width:954px;
+	margin:0 auto;
+	padding:10px;
+	border:none;
+	
+    outline: none;
+	transition-duration: 0.8s;
+    transition-property: all;
+
+	
+}
+
+.codedata:focus
+{
+
+	background:#fffff0;
+	box-shadow:2px 2px 3px #3E6B85,0 0 1px #3E6B85;	
+	
+
+}
+
+.codedata:focus  + .shadow
+{
+display:none;	
+
+}
+
+
+.shadow
+{
+
+left: 0;
+width: 340px;
+z-index: 1;
+height: 5px;
+bottom: -9px;
+background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0)));
+-webkit-mask-box-image: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(0, 0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.8)), color-stop(1, rgba(0, 0, 0, 0)));
+
+}
