@@ -15,30 +15,61 @@
 <a href="https://github.com/hardiksondagar/htmltagstripper.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png" alt="Fork me on GitHub"></a>
 <header>
 
-<span class="logo">HTML <font color="#FE8315">&lt;tag&gt;</font> Stripper<span></span></span>
+<span class="logo">HTML <font color="#FE8315">&lt;tag&gt;</font> Stripper <span></span></span>v 1.0
 <a href="https://twitter.com/intent/user?screen_name=hardiksondagar"><span class="nav" id="follow"></span></a>
 <span class="nav" id="about">About</span>
-<span class="nav" id="fork">Fork</span>
+<a href="https://github.com/hardiksondagar/htmltagstripper.git"><span class="nav" id="fork">Fork</span></a>
 
-<span class="nav"><a href="https://github.com/hardiksondagar/htmltagstripper/archive/master.zip">Download</a></span>
+<a href="https://github.com/hardiksondagar/htmltagstripper/archive/master.zip"><span class="nav">Download</span></a>
 
 
 <div class="shadow"><br/></div>
 
 </header>
 <section>
-Input:
-<textarea class="codedata" id="input" rows="10" title="Input Code" name="inputcode"  placeholder="Past your input Code here"></textarea>
-<div class="shadow" style="width:954px;position:relative;bottom:6px;height:10px"></div>
-Output:
-<textarea class="codedata" id="input" rows="10" title="Input Code" name="inputcode"  placeholder="Past your input Code here"></textarea>
-<div class="shadow" style="width:954px;position:relative;bottom:6px;height:10px"></div>
+<div class="label" >Input:</div>
+<!--<div class="codedata" contentEditable="true" >dfbdf</div>-->
+<textarea class="codedata" id="Input" rows="10" title="Input Code" name="inputcode"  placeholder="Past your input Code here"></textarea>
+<div class="shadow" style="width:954px;position:relative;bottom:5px;height:10px"></div>
+<input type="button" class="btn" id="convert" value="Convert"/>
+<br/><br/>
+<div class="label" >Output:</div>
+<div class="codedata" id="test" contentEditable="true"  style="opacity:0;background:white;"></div>
+<textarea class="codedata"  id="Output" rows="10" title="Input Code" name="inputcode"  style="display:none;opacity:0;" placeholder="Output"></textarea>
+<div class="shadow" style="width:954px;position:relative;height:10px;display:none;bottom:0;"></div>
 
 </section>
 
+<footer>
+&#169; 2013 copyright, htmlstripper.com
+</footer>
+<script>
+$('#convert').on('click',function()
+{
 
+
+		$('#test').css({'display':'block','opacity':'0'});	
+		$('#test').html($('#Input').val());
+		$('#test').find('style').remove();
+		$('#test').find('iframe').remove();
+		
+		$('#test').find('style').remove();
+
+		//$('#test').css({'display':'block','opacity':'1'});
+		$('#test + .shadow').css({'display':'block','margin':'0'});
+		
+		
+		$('#Output').val($('#test').html());
+				$('#Output').css({'display':'block','opacity':'1'});
+		$('#Output').fadeIn("10000");
+		
+	
+
+})
+</script>
 
 </body>
 
 
 </html>
+

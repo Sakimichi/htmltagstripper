@@ -9,13 +9,14 @@ body
 
 a
 {
-text-decoration:none;
-color:inherit;
+	text-decoration:none;
+	color:inherit;
 }
 
 header
 {
 		padding:10px 20px;
+
 }
 
 .logo
@@ -44,7 +45,7 @@ header
 	width:340px;
 	height:70px;
 	transition-duration: 2s;
-    transition-property: all;
+    	transition-property: all;
 	
 
 }
@@ -60,20 +61,15 @@ header
 .nav
 {
 
-	
-	
 	float:right;
 	font-size:12pt;
 	padding:5px;
 	width:70px;
 	height:70px;
-	
 	margin:0 2px;
-	color:rgba(0,0,0,0.7);
-	color:#006C80;
 	overflow:hidden;
 	transition-duration: 0.3s;
-    transition-property: all;
+    	transition-property: all;
 	background:#006C80;
 	color:#ffffff;
 	text-align:center;
@@ -88,12 +84,13 @@ header
 	box-shadow:0 0 1px #132537;
 	width:85px;
 	height:85px;
-	
 	color:#006C80;
 	background:#ffffff;
 	
 	animation: flip 0.5s linear;
 	-webkit-animation: flip 0.5s linear;
+	animation: flip 0.5s linear;
+	-o-animation: flip 0.5s linear;
 	vertical-align:text-bottom;
 	
 
@@ -120,6 +117,7 @@ header
     {
 		transform:rotate(0deg);
 		-webkit-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
 		box-shadow:-2px 0 2px #FE8315;
 	
     }
@@ -127,6 +125,7 @@ header
 	{
 		transform:rotate(10deg);
 		-webkit-transform:rotate(10deg);
+		-o-transform:rotate(0deg);
 		box-shadow:0 -2px 2px #FE8315;
 	
 	}
@@ -134,6 +133,7 @@ header
 	{
 		transform:rotate(-10deg);
 		-webkit-transform:rotate(-10deg);
+		-o-transform:rotate(0deg);
 		box-shadow:2px 0 2px #FE8315;
 	
 		
@@ -142,6 +142,130 @@ header
 	{
 		transform:rotate(0deg);
 		-webkit-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+		box-shadow:2px 2px 2px #FE8315;
+	
+    }
+
+
+	
+}
+
+@-moz-keyframes flip 
+{
+    0% 
+    {
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+		box-shadow:-2px 0 2px #FE8315;
+	
+    }
+	33%
+	{
+		transform:rotate(10deg);
+		-webkit-transform:rotate(10deg);
+		-o-transform:rotate(0deg);
+		box-shadow:0 -2px 2px #FE8315;
+	
+	}
+	66%
+	{
+		transform:rotate(-10deg);
+		-webkit-transform:rotate(-10deg);
+		-o-transform:rotate(0deg);
+		box-shadow:2px 0 2px #FE8315;
+	
+		
+	}
+	100% 
+	{
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+		box-shadow:2px 2px 2px #FE8315;
+	
+    }
+
+
+	
+}
+@-o-keyframes flip 
+{
+    0% 
+    {
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+		box-shadow:-2px 0 2px #FE8315;
+	
+    }
+	33%
+	{
+		transform:rotate(10deg);
+		-webkit-transform:rotate(10deg);
+		-o-transform:rotate(0deg);
+		box-shadow:0 -2px 2px #FE8315;
+	
+	}
+	66%
+	{
+		transform:rotate(-10deg);
+		-webkit-transform:rotate(-10deg);
+		-o-transform:rotate(0deg);
+		box-shadow:2px 0 2px #FE8315;
+	
+		
+	}
+	100% 
+	{
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+		box-shadow:2px 2px 2px #FE8315;
+	
+    }
+
+
+	
+}
+
+@keyframes flip 
+{
+    0% 
+    {
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+
+		box-shadow:-2px 0 2px #FE8315;
+	
+    }
+	33%
+	{
+		transform:rotate(10deg);
+		-webkit-transform:rotate(10deg);
+		-o-transform:rotate(0deg);
+
+		box-shadow:0 -2px 2px #FE8315;
+	
+	}
+	66%
+	{
+		transform:rotate(-10deg);
+		-webkit-transform:rotate(-10deg);
+		-o-transform:rotate(0deg);
+
+		box-shadow:2px 0 2px #FE8315;
+	
+		
+	}
+	100% 
+	{
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+
 		box-shadow:2px 2px 2px #FE8315;
 	
     }
@@ -166,18 +290,22 @@ section
 
 .codedata
 {
+
 	font-family:'Sirin Stencil', cursive;
 	position:relative;
 	font-size:12pt;
 	resize: none;
+	min-height:25px;
 	width:954px;
 	margin:0 auto;
 	padding:10px;
 	border:none;
+	font-weight:bold;
+	color:#000000;
 	
-    outline: none;
+    	outline: none;
 	transition-duration: 0.8s;
-    transition-property: all;
+	transition-property: all;
 
 	
 }
@@ -191,22 +319,67 @@ section
 
 }
 
-.codedata:focus  + .shadow
-{
-display:none;	
 
-}
 
 
 .shadow
 {
 
-left: 0;
-width: 340px;
-z-index: 1;
-height: 5px;
-bottom: -9px;
-background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0)));
+	left: 0;
+	width: 340px;
+	z-index: 1;
+	height: 5px;
+	bottom: -9px;
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0)));
 -webkit-mask-box-image: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(0, 0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.8)), color-stop(1, rgba(0, 0, 0, 0)));
 
+
+
+
 }
+
+.label
+{
+	font-family: 'Patrick Hand SC', cursive;
+	font-size:16pt;
+	font-weight:bolder;
+	text-shadow:0 1px 2px #ffffff;
+
+}
+
+
+footer
+{
+	font-family: 'San Sarif';
+	color:rgba(0, 0, 0, 0.6);
+
+}
+
+.btn
+{
+	position:absolute;
+	border:none;
+	color:#006C80;
+	background:#ffffff;
+	font-size:12pt;
+	font-weight:bolder;
+	height:40px;
+	width:80px;
+	box-shadow:3px 3px 0px #006C80,3px 3px 2px #006C80;
+	transition-duration: 0.15s;
+	transition-property: all;
+	overflow:hidden;	
+	text-shadow:0 2px 2px rgba(0,0,0,0.2);
+}
+
+.btn:active
+{
+	background:#006C80;
+	color:#ffffff;
+	text-shadow:1px 1px 1px #FE8315;
+	margin:6px;
+	box-shadow:0px 0px 0px #006C80;
+	
+}
+
+
