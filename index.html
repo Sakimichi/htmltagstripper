@@ -4,9 +4,11 @@
      <title>HTML Stripper</title>
      <link rel="stylesheet" href="style.css">
      <script src="http://code.jquery.com/jquery-2.0.0.min.js" type="text/javascript"></script>
+	 <script type="text/javascript" src="tags.js"></script>
      <link href='http://fonts.googleapis.com/css?family=Sirin+Stencil' rel='stylesheet' type='text/css'>
 	 <link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC' rel='stylesheet' type='text/css'>
 	 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
 
 
 </head>
@@ -32,40 +34,166 @@
 <textarea class="codedata" id="Input" rows="10" title="Input Code" name="inputcode"  placeholder="Past your input Code here"></textarea>
 <div class="shadow" style="width:954px;position:relative;bottom:5px;height:10px"></div>
 <input type="button" class="btn" id="convert" value="Convert"/>
-<br/><br/>
+<br/>
+<input name="tags" type="text" value="" style="display: none;">
+
+<br/>
 <div class="label" >Output:</div>
-<div class="codedata" id="test" contentEditable="true"  style="opacity:0;background:white;"></div>
-<textarea class="codedata"  id="Output" rows="10" title="Input Code" name="inputcode"  style="display:none;opacity:0;" placeholder="Output"></textarea>
+<div class="codedata" id="test" contentEditable="true"  style="display:none;opacity:0;background:white;"></div>
+<textarea class="codedata"  id="Output" rows="10" title="Output Code" name="inputcode"  style="display:none;opacity:0;" placeholder="Output"></textarea>
 <div class="shadow" style="width:954px;position:relative;height:10px;display:none;bottom:0;"></div>
 
 </section>
 
 <footer>
-&#169; 2013 copyright, htmlstripper.com
+Copyright &copy; 2013 htmltagstripper.com.  All rights reserved.
 </footer>
+<script type="text/javascript">
+(function($){
+    $(document).ready(function() {
+        $('input[name=tags]').tagger();
+    });
+})(jQuery);
+
+</script>
 <script>
 $('#convert').on('click',function()
 {
-
-
-		$('#test').css({'display':'block','opacity':'0'});	
-		$('#test').html($('#Input').val());
-		$('#test').find('style').remove();
-		$('#test').find('iframe').remove();
+	
 		
-		$('#test').find('style').remove();
+		var tags_exclude_list=$(".tag");
+		var tags_exclude_regEx='';
+		$.each( tags_exclude_list, function(index, item){
+			//console.log($(item).html());
+			//if(index==0)
+			//{
+				tags_exclude_regEx=(index==0)?$(item).html():tags_exclude_regEx+'|'+$(item).html();
+			//}
+			//else
+			//{
+				//tags_exclude_regEx=tags_exclude_regEx+'|'+$(item).html();
+		//	}
+		});
+		console.log(tags_exclude_regEx);
+		$('#Output').val('');
+
+		//$('#test').css({'display':'block','opacity':'0'});	
+//		$('#test').html($('#Input').val());
+		var divv = document.createElement('div');
+		divv.innerHTML=$('#Input').val();
+//		$('#test').find('style').remove();
+//		$('#test').find('iframe').remove();
+//		$('#test').find('style').remove();
 
 		//$('#test').css({'display':'block','opacity':'1'});
-		$('#test + .shadow').css({'display':'block','margin':'0'});
+		//$('#test + .shadow').css({'display':'block','margin':'0'});
 		
-		
-		$('#Output').val($('#test').html());
-				$('#Output').css({'display':'block','opacity':'1'});
-		$('#Output').fadeIn("10000");
+
+		//var regex = /(?!(<i>|<\/i>))(<([^>]+)>)/ig;
+		//var regex_final=/<(?!\s*\/?(a|b|c)\b)[^>]+>/ig;
+		var regex ='/<(?!\\s*\\/?('+tags_exclude_regEx+')\\b)[^>]+>/gi';
+		console.log(regex);
+		console.log(/<(?!\s*\/?(tags_exclude_regEx)\b)[^>]+>/ig);
+//		var regex =(\<)(?!br(\s|\/|\>))(.*?\>);
+//		var body = $('#test').html();
+		 //var regex = /(?!a|br|/a)[^>]+;
+		var body = divv.innerHTML;
+		var result = body.replace(regex.toString(), "");
+
+
+		$('#Output').val(result);
+
+		if($('#Output').val()=='')
+		{
+			$('#Output').css({'display':'none','opacity':'0'});
+			$('#Output').fadeOut("10000");
+
+ 		}
+		else
+		{
+			$('#Output').css({'display':'block','opacity':'1'});
+			$('#Output').fadeIn("10000");
+		}
 		
 	
 
 })
+
+
+
+	var link = document.createElement('link');
+        link.type = 'image/x-icon';
+    	link.rel = 'shortcut icon';
+    	link.href = 'img/visible.png';
+	document.getElementsByTagName('head')[0].appendChild(link);
+	processing=1;
+
+
+	
+	var hidden, state, visibilityChange; 
+	if (typeof document.hidden !== "undefined") 
+	{
+		hidden = "hidden";
+		visibilityChange = "visibilitychange";
+		state = "visibilityState";
+
+	} 
+	else if (typeof document.mozHidden !== "undefined") 
+	{
+		hidden = "mozHidden";
+		visibilityChange = "mozvisibilitychange";
+		state = "mozVisibilityState";
+        
+
+	}
+	else if (typeof document.msHidden !== "undefined") 
+	{
+		hidden = "msHidden";
+		visibilityChange = "msvisibilitychange";
+		state = "msVisibilityState";
+       
+
+	}
+	else if (typeof document.webkitHidden !== "undefined") 
+	{
+		hidden = "webkitHidden";
+		visibilityChange = "webkitvisibilitychange";
+		state = "webkitVisibilityState";
+
+
+	}
+	    document.addEventListener("visibilitychange", onchange);
+        document.addEventListener("webkitvisibilitychange", onchange);
+		document.addEventListener("msvisibilitychange", onchange);
+		document.addEventListener("mozvisibilitychange", onchange);
+   
+	
+	function onchange (evt) {
+			
+			
+		link.href = 'img/visible.png';		
+		document.title="Focus";
+		if(document[state]!="visible")
+		{ 
+				console.log(document[state]);
+				document.title="Blur";
+				link.href = 'img/hidden.png';		
+		}
+		document.getElementsByTagName('head')[0].appendChild(link);
+
+
+	 }
+
+	
+
+
+  $( ".codedata" ).mouseenter( function() {
+	//	$( "section" ).css({'opacity':'0.3','z-index':'-1'});
+      //  $( ".codedata" ).css({'opacity':'1','z-index':'999'});
+    }).mouseleave( function() {
+       // $( "body" ).css({'opacity':'1'});
+    });;
+
 </script>
 
 </body>

@@ -55,7 +55,7 @@ header
 .logo:hover span
 {
 	background-position: 340px 0px;
-
+	
 }
 
 .nav
@@ -99,13 +99,15 @@ header
 #follow
 {
 	background:url('img/twitter.png') no-repeat;
-	background-size:100% 100%;
+	background-size:160px 80px;
+	background-position:-80px 0;
 }
 
 #follow:hover
 {
-	background:url('img/twitter_x.png') no-repeat;
-	background-size:100% 100%;
+	background:url('img/twitter.png') no-repeat;
+	background-size:200% 100%;
+	background-position:0;
 
 }
 
@@ -119,7 +121,7 @@ header
 		-webkit-transform:rotate(0deg);
 		-o-transform:rotate(0deg);
 		box-shadow:-2px 0 2px #FE8315;
-	
+		
     }
 	33%
 	{
@@ -127,7 +129,7 @@ header
 		-webkit-transform:rotate(10deg);
 		-o-transform:rotate(0deg);
 		box-shadow:0 -2px 2px #FE8315;
-	
+		-webkit-transform: translate3d(-20%, 10%, 0);
 	}
 	66%
 	{
@@ -310,14 +312,21 @@ section
 	
 }
 
-.codedata:focus
+.codedata:focus 
 {
 
 	background:#fffff0;
 	box-shadow:2px 2px 3px #3E6B85,0 0 1px #3E6B85;	
 	
+}
+
+.codedata:focus
+{
+
+
 
 }
+
 
 
 
@@ -351,7 +360,8 @@ section
 footer
 {
 	font-family: 'San Sarif';
-	color:rgba(0, 0, 0, 0.6);
+	color:rgba(0, 0, 0, 0.4);
+	text-shadow:0 0 1px rgba(0, 0, 0, 0.2);
 
 }
 
@@ -381,5 +391,59 @@ footer
 	box-shadow:0px 0px 0px #006C80;
 	
 }
+
+
+
+/* Tags */
+div.tagger{
+position:relative;
+margin-top:50px;
+    border: 1px solid #aaa;
+    width: 22em;
+    cursor: text;
+    overflow: hidden;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+	
+}
+
+div.tagger span.tag{
+    display: block;
+    float: left;
+    background: #cde;
+    border: 1px solid #cde;
+    padding: 0.15em 0.3em;
+    margin: 0.15em;
+    color: #345;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+div.tagger span.editing{
+    background: #f2f9ff;
+}
+
+div.tagger input{
+    border: none;
+    display: block;
+    padding: 0.15em 0.3em;
+    margin: 0.15em;
+    border: 1px solid transparent;
+    float: left;
+    font-size: inherit;
+    font-family: inherit;
+    width: auto;
+}
+
+div.tagger input:focus{
+	border: none;
+	background: none;
+}
+
+div.tagger span input{
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
 
 
