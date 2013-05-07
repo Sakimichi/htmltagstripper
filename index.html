@@ -64,17 +64,9 @@ $('#convert').on('click',function()
 		var tags_exclude_list=$(".tag");
 		var tags_exclude_regEx='';
 		$.each( tags_exclude_list, function(index, item){
-			//console.log($(item).html());
-			//if(index==0)
-			//{
 				tags_exclude_regEx=(index==0)?$(item).html():tags_exclude_regEx+'|'+$(item).html();
-			//}
-			//else
-			//{
-				//tags_exclude_regEx=tags_exclude_regEx+'|'+$(item).html();
-		//	}
 		});
-		console.log(tags_exclude_regEx);
+		
 		$('#Output').val('');
 
 		//$('#test').css({'display':'block','opacity':'0'});	
@@ -89,16 +81,16 @@ $('#convert').on('click',function()
 		//$('#test + .shadow').css({'display':'block','margin':'0'});
 		
 
-		//var regex = /(?!(<i>|<\/i>))(<([^>]+)>)/ig;
-		//var regex_final=/<(?!\s*\/?(a|b|c)\b)[^>]+>/ig;
-		var regex ='/<(?!\\s*\\/?('+tags_exclude_regEx+')\\b)[^>]+>/gi';
+		var regex_final=/<(?!\s*\/?(a|b|c)\b)[^>]+>/ig;
+		
+		var regex =new RegExp("<(?!\\s*\\/?("+tags_exclude_regEx+")\\b)[^>]+>","gi");
 		console.log(regex);
-		console.log(/<(?!\s*\/?(tags_exclude_regEx)\b)[^>]+>/ig);
+		console.log(regex_final);
 //		var regex =(\<)(?!br(\s|\/|\>))(.*?\>);
 //		var body = $('#test').html();
 		 //var regex = /(?!a|br|/a)[^>]+;
 		var body = divv.innerHTML;
-		var result = body.replace(regex.toString(), "");
+		var result = body.replace(regex, "");
 
 
 		$('#Output').val(result);
