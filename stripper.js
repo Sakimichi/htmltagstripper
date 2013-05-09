@@ -2,6 +2,8 @@
 $('#convert').on('click',function()
 {
 	
+		$('#convert img').css({'-webkit-animation':'converting 1s linear'});
+		setTimeout(reset,1300);
 		
 		var tags_exclude_list=$(".tag");
 		
@@ -57,3 +59,9 @@ $('#convert').on('click',function()
 	
 
 });
+
+function reset()
+{
+		$('#convert img').css({'-webkit-animation':'none'});
+
+}
