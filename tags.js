@@ -192,6 +192,8 @@ Tagger - Converts any text input box into an easy-to-edit multiple-tag interface
         {
 			if($(this).attr('class')=="tag")
 			{
+				element = $(this);
+				($(element).parent()).find($(this)).remove();
 				return;
 			}
 			
@@ -264,5 +266,7 @@ Tagger - Converts any text input box into an easy-to-edit multiple-tag interface
             });
         }
     });
+	
+	
 	
 })(jQuery);

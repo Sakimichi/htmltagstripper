@@ -5,6 +5,7 @@
      <link rel="stylesheet" href="style.css">
      <script src="http://code.jquery.com/jquery-2.0.0.min.js" type="text/javascript"></script>
 	 <script type="text/javascript" src="tags.js"></script>
+	 
      <link href='http://fonts.googleapis.com/css?family=Sirin+Stencil' rel='stylesheet' type='text/css'>
 	 <link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC' rel='stylesheet' type='text/css'>
 	 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -33,7 +34,12 @@
 <!--<div class="codedata" contentEditable="true" >dfbdf</div>-->
 <textarea class="codedata" id="Input" rows="10" title="Input Code" name="inputcode"  placeholder="Past your input Code here"></textarea>
 <div class="shadow" style="width:954px;position:relative;bottom:5px;height:10px"></div>
-<input type="button" class="btn" id="convert" value="Convert"/>
+
+<!--<input type="button" class="btn" id="convert" value="Convert"/>-->
+<span id="convert" class="convert_btn">
+Convert
+<img src="img/convert.png" />
+</span>
 <br/>
 <input name="tags" type="text" value="" style="display: none;">
 
@@ -48,6 +54,7 @@
 <footer>
 Copyright &copy; 2013 htmltagstripper.com.  All rights reserved.
 </footer>
+<script type="text/javascript" src="stripper.js"></script>
 <script type="text/javascript">
 (function($){
     $(document).ready(function() {
@@ -57,67 +64,6 @@ Copyright &copy; 2013 htmltagstripper.com.  All rights reserved.
 
 </script>
 <script>
-
-$('#convert').on('click',function()
-{
-	
-		
-		var tags_exclude_list=$(".tag");
-		
-		var tags_exclude_regEx='';
-		$.each( tags_exclude_list, function(index, item){
-				tags_exclude_regEx=(index==0)?$(item).html():tags_exclude_regEx+'|'+$(item).html();
-		});
-		
-		$('#Output').val('');
-
-		//$('#test').css({'display':'block','opacity':'0'});	
-//		$('#test').html($('#Input').val());
-		var divv = document.createElement('div');
-		divv.innerHTML=$('#Input').val();
-//		$('#test').find('style').remove();
-//		$('#test').find('iframe').remove();
-//		$('#test').find('style').remove();
-
-		//$('#test').css({'display':'block','opacity':'1'});
-		//$('#test + .shadow').css({'display':'block','margin':'0'});
-		
-
-		var regex_final=/<(?!\s*\/?(a|b|c)\b)[^>]+>/ig;
-		
-		var regex =new RegExp("<(?!\\s*\\/?("+tags_exclude_regEx+")\\b)[^>]+>","gi");
-		console.log(regex);
-		console.log(regex_final);
-//		var regex =(\<)(?!br(\s|\/|\>))(.*?\>);
-//		var body = $('#test').html();
-		 //var regex = /(?!a|br|/a)[^>]+;
-		var body = divv.innerHTML;
-		if(tags_exclude_list.length==0)
-		{
-			regex=/(<([^>]+)>)/ig;
-		}
-		//regex=/(<([^>]+)>)/ig;
-			var result = body.replace(regex, "");
-
-		$('#Output').val(result);
-
-		if($('#Output').val()=='')
-		{
-			$('#Output').css({'display':'none','opacity':'0'});
-			$('#Output').fadeOut("10000");
-
- 		}
-		else
-		{
-			$('#Output').css({'display':'block','opacity':'1'});
-			$('#Output').fadeIn("10000");
-		}
-		
-	
-
-})
-
-
 
 	var link = document.createElement('link');
         link.type = 'image/x-icon';
