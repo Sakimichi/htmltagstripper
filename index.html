@@ -8,7 +8,7 @@
      <link href='http://fonts.googleapis.com/css?family=Sirin+Stencil' rel='stylesheet' type='text/css'>
 	 <link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC' rel='stylesheet' type='text/css'>
 	 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-
+	<meta name="google-site-verification" content="7m2ehFY9E4jnL-R0v8bQqZQZujxNGnJ4wOowkRiQow0" />
 
 
 </head>
@@ -57,11 +57,13 @@ Copyright &copy; 2013 htmltagstripper.com.  All rights reserved.
 
 </script>
 <script>
+
 $('#convert').on('click',function()
 {
 	
 		
 		var tags_exclude_list=$(".tag");
+		
 		var tags_exclude_regEx='';
 		$.each( tags_exclude_list, function(index, item){
 				tags_exclude_regEx=(index==0)?$(item).html():tags_exclude_regEx+'|'+$(item).html();
@@ -90,8 +92,12 @@ $('#convert').on('click',function()
 //		var body = $('#test').html();
 		 //var regex = /(?!a|br|/a)[^>]+;
 		var body = divv.innerHTML;
-		var result = body.replace(regex, "");
-
+		if(tags_exclude_list.length==0)
+		{
+			regex=/(<([^>]+)>)/ig;
+		}
+		//regex=/(<([^>]+)>)/ig;
+			var result = body.replace(regex, "");
 
 		$('#Output').val(result);
 
@@ -185,6 +191,17 @@ $('#convert').on('click',function()
     }).mouseleave( function() {
        // $( "body" ).css({'opacity':'1'});
     });;
+
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40737319-1', 'htmltagstripper.com');
+  ga('send', 'pageview');
 
 </script>
 

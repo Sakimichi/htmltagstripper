@@ -305,7 +305,7 @@ section
 	font-weight:bold;
 	color:#000000;
 	
-    	outline: none;
+    outline: none;
 	transition-duration: 0.8s;
 	transition-property: all;
 
@@ -404,6 +404,7 @@ margin-top:50px;
     overflow: hidden;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
+	background:#ffffff;
 	
 }
 
@@ -413,11 +414,21 @@ div.tagger span.tag{
     background: #cde;
     border: 1px solid #cde;
     padding: 0.15em 0.3em;
+	
     margin: 0.15em;
     color: #345;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
+	
+	
 }
+div.tagger span.tag:hover
+{
+	padding-right:25px;
+	background:url('img/cancel.png') no-repeat;
+	background-position:right;
+}
+
 
 div.tagger span.editing{
     background: #f2f9ff;
@@ -428,16 +439,20 @@ div.tagger input{
     display: block;
     padding: 0.15em 0.3em;
     margin: 0.15em;
-    border: 1px solid transparent;
+    outline: none;
     float: left;
     font-size: inherit;
     font-family: inherit;
     width: auto;
+	border-radius:5px;
+	
 }
 
 div.tagger input:focus{
 	border: none;
 	background: none;
+	
+	border:2px solid #006C80;
 }
 
 div.tagger span input{
