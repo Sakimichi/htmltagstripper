@@ -4,7 +4,7 @@ body
 	margin:0 auto;
 	padding:0;
 	font-family:'Sirin Stencil', cursive;
-	color:#;
+	color:#006C80;
 }
 
 a
@@ -127,6 +127,28 @@ section
 	
 }
 
+#description
+{
+	padding:10px 20px;
+	font-size:12pt;
+	margin:30px auto;
+	opacity:0.9;
+	text-align:justify;
+	text-shadow: 0 1px 0 #ccc, 
+				0 2px 0 #c9c9c9,
+				0 3px 0 #bbb,
+				0 4px 0 #b9b9b9,
+				0 3px 0 #aaa,
+				0 4px 1px rgba(0,0,0,.1),
+				0 0 5px rgba(0,0,0,.1),
+				0 1px 3px rgba(0,0,0,.3),
+				0 3px 5px rgba(0,0,0,.2),
+				0 5px 10px rgba(0,0,0,2.25),
+				0 20px 20px rgba(0,0,0,.15);
+				
+}
+
+/* Input Output*/
 .codedata
 {
 
@@ -157,17 +179,6 @@ section
 	
 }
 
-.codedata:focus
-{
-
-
-
-}
-
-
-
-
-
 .shadow
 {
 
@@ -178,10 +189,6 @@ section
 	bottom: -9px;
 	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0)));
 -webkit-mask-box-image: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(0, 0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.8)), color-stop(1, rgba(0, 0, 0, 0)));
-
-
-
-
 }
 
 .label
@@ -202,14 +209,8 @@ footer
 
 }
 
-#exclude
-{
-	font-size:14pt;
-	color:#006C80;
-	font-weight:bolder;
-	margin-bottom:-15px;
 
-}
+/* Conver*/
 .convert_btn
 {
 	font-family:'Sirin Stencil', cursive;
@@ -247,42 +248,23 @@ footer
 
 
 
-.btn
-{
-	font-family:'Sirin Stencil', cursive;
-	position:absolute;
-	border:none;
-	color:#006C80;
-	background:#ffffff;
-	font-size:14pt;
-	font-weight:bolder;
-	height:40px;
-	width:80px;
-	box-shadow:0px 0px 0px #006C80,0px 0px 2px #006C80;
-	transition-duration: 0.15s;
-	transition-property: all;
-	overflow:hidden;	
-	text-shadow:1px 1px 2px #ffffff,1px 1px 3px #000000;
-}
-
-.btn:active
-{
-	background:#006C80;
-	color:#ffffff;
-	text-shadow:1px 1px 1px #FE8315;
-	height:36px;
-	width:76px;
-	box-shadow:0px 0px 0px #006C80;
-	border:2px solid #ffffff;
-}
-
-
-
 /* Tags */
+
+#exclude
+{
+	font-size:14pt;
+	color:#006C80;
+	font-weight:bolder;
+	margin-bottom:-15px;
+
+}
+
+
+
 div.tagger{
 	
 	position:relative;
-	margin-top:20px;
+	margin-top:5px;
     border: 1px solid #aaa;
     width: 22em;
     cursor: text;
@@ -361,7 +343,40 @@ div.tagger span input{
 		opacity:0;
     }
 }
+@-moz-keyframes converting 
+{
+    from{
+        -moz-transform: rotate(0deg);
+		opacity:1;
+    }
+    to{
+        -moz-transform: rotate(360deg);
+		opacity:0;
+    }
+}
+@-ms-keyframes converting 
+{
+    from{
+        -ms-transform: rotate(0deg);
+		opacity:1;
+    }
+    to{
+        -ms-transform: rotate(360deg);
+		opacity:0;
+    }
+}
 
+@-o-keyframes converting 
+{
+    from{
+        -o-transform: rotate(0deg);
+		opacity:1;
+    }
+    to{
+        -o-transform: rotate(360deg);
+		opacity:0;
+    }
+}
 
 	
 

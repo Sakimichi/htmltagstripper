@@ -3,6 +3,8 @@
 <head>
      <title>HTML Stripper</title>
      <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="box.css">
+
      <script src="http://code.jquery.com/jquery-2.0.0.min.js" type="text/javascript"></script>
 	 <script type="text/javascript" src="tags.js"></script>
 	 
@@ -29,7 +31,16 @@
 <div class="shadow"><br/></div>
 
 </header>
+<div id="description">Simple tool to strip HTML tags from provided text. This is useful for displaying HTML in plain text and stripping formatting like bold and italics.
+<span id="box_element">
+<span class="box" id="box1"></span>
+<span class="box" id="box2"></span>
+<span class="box" id="box3"></span>
+<span class="box" id="box4"></span>
+</span>
+</div>
 <section>
+
 <div class="label" >Input:</div>
 <!--<div class="codedata" contentEditable="true" >dfbdf</div>-->
 <textarea class="codedata" id="Input" rows="10" title="Input Code" name="inputcode"  placeholder="Past your input Code here"></textarea>
