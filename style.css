@@ -1,10 +1,12 @@
 body
 {
 	width:1024px;
+	
 	margin:0 auto;
 	padding:0;
 	font-family:'Sirin Stencil', cursive;
 	color:#006C80;
+	padding:0 20px;
 }
 
 a
@@ -15,7 +17,7 @@ a
 
 header
 {
-		padding:10px 20px;
+	padding:10px 20px;
 
 }
 
@@ -45,7 +47,7 @@ header
 	width:340px;
 	height:70px;
 	transition-duration: 2s;
-    	transition-property: all;
+    transition-property: all;
 	
 
 }
@@ -79,9 +81,10 @@ header
 
 .nav:hover
 {
-	border-bottom:2px solid #FE8315;
 	text-shadow:0 0 0.9px #132537;
 	box-shadow:0 0 1px #132537;
+	border-bottom:2px solid #FE8315;
+
 	width:85px;
 	height:85px;
 	color:#006C80;
@@ -111,7 +114,19 @@ header
 
 }
 
+#fork
+{
+	background:url('img/github.png') no-repeat,#006C80;
+	background-size:160px 80px;
+	background-position:-80px 0;	
+}
 
+#fork:hover
+{
+	background:url('img/github.png') no-repeat,#ffffff;
+	background-size:200% 100%;
+	background-position:0;
+}
 
 
 section
