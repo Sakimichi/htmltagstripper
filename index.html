@@ -1,174 +1,280 @@
 <!DOCTYPE html>
-<html>
-<head>
-     <title>HTML Stripper</title>
-     <link rel="stylesheet" href="style.css">
-     <link rel="stylesheet" href="box.css">
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <script src="http://code.jquery.com/jquery-2.0.0.min.js" type="text/javascript"></script>
-	 <script type="text/javascript" src="tags.js"></script>
-	 
-     <link href='http://fonts.googleapis.com/css?family=Sirin+Stencil' rel='stylesheet' type='text/css'>
-	 <link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC' rel='stylesheet' type='text/css'>
-	 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-	<meta name="google-site-verification" content="7m2ehFY9E4jnL-R0v8bQqZQZujxNGnJ4wOowkRiQow0" />
-	<META NAME="Author" CONTENT="Hardik Sondagar">
-	<META NAME="Description" CONTENT="This online html converter strips all html tags except for
-tags that you specify as allowed tags. It also strips all attributes from html source code.">
-<META NAME="KeyWords" CONTENT="html, strip, strips, stripper, tag, tags, attribute, attributes, source,code, allowed">
+        <meta name="google-site-verification" content="7m2ehFY9E4jnL-R0v8bQqZQZujxNGnJ4wOowkRiQow0" />
+        <meta name="Author" content="Hardik Sondagar">
+        <meta name="Description" CONTENT="This online html converter strips all html tags except for
+              tags that you specify as allowed tags. It also strips all attributes from html source code.">
+        <META NAME="KeyWords" CONTENT="html, strip, strips, stripper, tag, tags, attribute, attributes, source,code, allowed, remove, removers">
 
 
-</head>
+        <title>HTML Tag Stripper</title>
 
-<body>
+        <!-- Bootstrap core CSS -->
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
 
-<header>
+        <!-- Custom styles for this template -->
+        <link href="assets/css/main.css" rel="stylesheet">
+        <link href="assets/css/font-awesome.min.css" rel="stylesheet">
 
-<span class="logo">HTML <font color="#FE8315">&lt;tag&gt;</font> Stripper <span></span></span>v 1.0
-<a href="https://twitter.com/intent/user?screen_name=hardiksondagar"><span class="nav" id="follow">Follow</span></a>
-<span class="nav" id="about">About</span>
-<a href="https://github.com/hardiksondagar/htmltagstripper.git"><span class="nav" id="fork">Fork</span>
-</a>
-
-<a href="https://github.com/hardiksondagar/htmltagstripper/archive/master.zip"><span class="nav">Download</span></a>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 
 
-<div class="shadow"><br/></div>
-
-</header>
-<div id="description">Simple tool to strip HTML tags from provided text. This is useful for displaying HTML in plain text and stripping formatting like bold and italics.
-<span id="box_element">
-<span class="box" id="box1"></span>
-<span class="box" id="box2"></span>
-<span class="box" id="box3"></span>
-<span class="box" id="box4"></span>
-</span>
-</div>
-<section>
-
-<div class="label" >Input:</div>
-<!--<div class="codedata" contentEditable="true" >dfbdf</div>-->
-<textarea class="codedata" id="Input" rows="10" title="Input Code" name="inputcode"  placeholder="Past your input Code here"></textarea>
-<div class="shadow" style="width:954px;position:relative;bottom:5px;height:10px"></div>
-
-<!--<input type="button" class="btn" id="convert" value="Convert"/>-->
-
-<label id="exclude">Exclude Tags:</label></label><input name="tags" type="text" value="" style="display:none;">
-<br/>
-<span id="convert" class="convert_btn">
-Convert
-<img src="img/convert.png" />
-</span>
-<br/><br/>
-<div class="label" >Output:</div>
-<div class="codedata" id="test" contentEditable="true"  style="display:none;opacity:0;background:white;"></div>
-<textarea class="codedata"  id="Output" rows="10" title="Output Code" name="inputcode"  style="display:none;opacity:0;" placeholder="Output"></textarea>
-<div class="shadow" style="width:954px;position:relative;height:10px;display:none;bottom:0;"></div>
-
-</section>
-
-<footer>
-Copyright &copy; 2013 htmltagstripper.com.  All rights reserved.
-</footer>
-<script type="text/javascript" src="stripper.js"></script>
-<script type="text/javascript">
-(function($){
-    $(document).ready(function() {
-        $('input[name=tags]').tagger();
-    });
-})(jQuery);
-
-</script>
-<script>
-
-	var link = document.createElement('link');
-        link.type = 'image/x-icon';
-    	link.rel = 'shortcut icon';
-    	link.href = 'img/visible.png';
-	document.getElementsByTagName('head')[0].appendChild(link);
-	processing=1;
+        <script src="assets/js/tags.js"></script>
 
 
-	
-	var hidden, state, visibilityChange; 
-	if (typeof document.hidden !== "undefined") 
-	{
-		hidden = "hidden";
-		visibilityChange = "visibilitychange";
-		state = "visibilityState";
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
 
-	} 
-	else if (typeof document.mozHidden !== "undefined") 
-	{
-		hidden = "mozHidden";
-		visibilityChange = "mozvisibilitychange";
-		state = "mozVisibilityState";
-        
+    <body>
 
-	}
-	else if (typeof document.msHidden !== "undefined") 
-	{
-		hidden = "msHidden";
-		visibilityChange = "msvisibilitychange";
-		state = "msVisibilityState";
-       
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="./" style="font-size: 50px">HTML <i class="fa fa-code"></i> Stripper </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class=""><a href="#contact">Contact</a></li>
+                        <li class="active"><a href="https://github.com/hardiksondagar/htmltagstripper.git"><i class="fa fa-github"></i> Git</a></li>
 
-	}
-	else if (typeof document.webkitHidden !== "undefined") 
-	{
-		hidden = "webkitHidden";
-		visibilityChange = "webkitvisibilitychange";
-		state = "webkitVisibilityState";
+                    </ul>
 
+                </div><!--/.nav-collapse -->
+                <p style="font-weight: 500;margin:0;">This online html converter strips all html <font class="taggg">tags</font> except for tags that you specify as allowed tags. It also strips all attributes from html source code.</p>
 
-	}
-	    document.addEventListener("visibilitychange", onchange);
-        document.addEventListener("webkitvisibilitychange", onchange);
-		document.addEventListener("msvisibilitychange", onchange);
-		document.addEventListener("mozvisibilitychange", onchange);
-   
-	
-	function onchange (evt) {
-			
-			
-		link.href = 'img/visible.png';		
-		document.title="HTML Stripper";
-		if(document[state]!="visible")
-		{ 
-				console.log(document[state]);
-				document.title="Blur";
-				link.href = 'img/hidden.png';		
-		}
-		document.getElementsByTagName('head')[0].appendChild(link);
+            </div>
+        </div>
 
 
-	 }
+        <div id="hello">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
 
-	
+                        <label for="Input" class="">Input Code</label>
+
+                        <textarea id="Input" class="codedata form-control" rows="10" placeholder="Paste your input Code here"></textarea>
+
+                    </div>
+                    <br/>
+                    <div class="col-lg-12">
+                        <label id="exclude">Exclude Tags:</label>
+
+                        <input name="tags" type="text" value="" style="display:none;" class="form-control">
+                        <br/>
+                        <br/>
+                        <span id="convert" class="label label-success" style="font-size: 1em;">Convert<i class="fa fa-refresh"></i>
+                        </span>
+                        <br/><br/>
+
+                    </div>
+                    <div class="col-lg-12" id="output-wrap" style="display: none;">
+                        <label for="Input" class="">Output Code</label>
+                        <textarea class="codedata form-control"  id="Output" rows="10" title="Output Code" name="inputcode"  style="display:none;opacity:0;" placeholder="Output"></textarea>
+                    </div>
+                    <!-- /col-lg-8 -->
+                </div><!-- /row -->
+            </div> <!-- /container -->
+        </div><!-- /hello -->
 
 
-  $( ".codedata" ).mouseenter( function() {
-	//	$( "section" ).css({'opacity':'0.3','z-index':'-1'});
-      //  $( ".codedata" ).css({'opacity':'1','z-index':'999'});
-    }).mouseleave( function() {
-       // $( "body" ).css({'opacity':'1'});
-    });;
-
-</script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-40737319-1', 'htmltagstripper.com');
-  ga('send', 'pageview');
-
-</script>
-
-</body>
+        <!--            <div id="hello">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 col-lg-offset-2 centered">
+                                    <h1>Bolt Theme</h1>
+                                    <h2>FREE BOOTSTRAP THEMES</h2>
+                                </div> /col-lg-8 
+                            </div> /row 
+                        </div>  /container 
+                    </div> /hello -->
 
 
+        <section id="contact" style="
+                 margin-bottom: 109px;
+                 "></section>
+
+        <div id="green">
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="col-lg-12">
+                        <h3>CONTACT ME</h3>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--        <div class="container">
+                    <div class="row">
+                        <div class="page-header col-lg-12">
+                            <h1>Contact <small>Me</small></h1>
+                        </div>
+                    </div>
+                </div>-->
+
+
+
+        <div id="social">
+            <div class="container">
+                <div class="row centered">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="col-md-3">
+                            <a href="http://fb.com/Hardiks9"><i class="fa fa-facebook"></i></a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="http://www.linkedin.com/in/hardiksondagar"><i class="fa fa-linkedin-square"></i></a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="http://twitter.com/hardiksondagar"><i class="fa fa-twitter"></i></a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="http://www.hardiksondagar.me/"><i class="fa fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /container -->
+        </div><!-- /social -->
+
+
+        <div id="f">
+            <div class="container">
+                <div class="row">
+                    <p>Made with <i class="fa fa-heart" style="
+                                    color: #FF5656;
+                                    text-shadow: 0 0 0px #000;
+                                    "></i> by <a href="http://www.hardiksondagar.me" style="
+                                    color: #fff;
+                                    text-shadow: 1px 0 0 #ddd;
+                                    ">Hardik Sondagar</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/bootstrap.js"></script>
+        <script src="assets/js/stripper.js"></script>
+        <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-40737319-1', 'htmltagstripper.com');
+            ga('send', 'pageview');
+
+
+            (function($) {
+                $(document).ready(function() {
+                    $('input[name=tags]').tagger();
+                });
+            })(jQuery);
+
+            var link = document.createElement('link');
+            link.type = 'image/x-icon';
+            link.rel = 'shortcut icon';
+            link.href = 'img/visible.png';
+            document.getElementsByTagName('head')[0].appendChild(link);
+            processing = 1;
+
+
+
+            var hidden, state, visibilityChange;
+            if (typeof document.hidden !== "undefined")
+            {
+                hidden = "hidden";
+                visibilityChange = "visibilitychange";
+                state = "visibilityState";
+
+            }
+            else if (typeof document.mozHidden !== "undefined")
+            {
+                hidden = "mozHidden";
+                visibilityChange = "mozvisibilitychange";
+                state = "mozVisibilityState";
+
+
+            }
+            else if (typeof document.msHidden !== "undefined")
+            {
+                hidden = "msHidden";
+                visibilityChange = "msvisibilitychange";
+                state = "msVisibilityState";
+
+
+            }
+            else if (typeof document.webkitHidden !== "undefined")
+            {
+                hidden = "webkitHidden";
+                visibilityChange = "webkitvisibilitychange";
+                state = "webkitVisibilityState";
+
+
+            }
+            document.addEventListener("visibilitychange", onchange);
+            document.addEventListener("webkitvisibilitychange", onchange);
+            document.addEventListener("msvisibilitychange", onchange);
+            document.addEventListener("mozvisibilitychange", onchange);
+
+
+            function onchange(evt) {
+
+
+                link.href = './assets/img/online.png';
+                document.title = "HTML Stripper";
+                if (document[state] != "visible")
+                {
+                    console.log(document[state]);
+                    //document.title = "Blur";
+                    link.href = './assets/img/offline.png';
+                }
+                document.getElementsByTagName('head')[0].appendChild(link);
+
+
+            }
+
+
+
+
+            $(".codedata").mouseenter(function() {
+                //	$( "section" ).css({'opacity':'0.3','z-index':'-1'});
+                //  $( ".codedata" ).css({'opacity':'1','z-index':'999'});
+            }).mouseleave(function() {
+                // $( "body" ).css({'opacity':'1'});
+            });
+            ;
+
+
+
+
+
+        </script>
+
+    </body>
 </html>
-
